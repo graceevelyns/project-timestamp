@@ -15,7 +15,8 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  const path = require("path");
+  res.sendFile(path.join(process.cwd(), "views", "index.html"));
 });
 
 const isInvalidDate = (date) => {
@@ -51,3 +52,4 @@ app.get("/api", function (req, res) {
 // var listener = app.listen(process.env.PORT || 3000, function () {
 //   console.log('Your app is listening on port ' + listener.address().port);
 // });
+module.exports = app;
